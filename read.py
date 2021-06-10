@@ -9,6 +9,8 @@ with open('reviews.txt', 'r') as f:
             print('讀取檔案進度第',len(data),'筆')
 print('檔案讀取完了,總共有',len(data),'筆資料')
 print('----------------------')
+
+
 #計算平均留言長度
 sum_len = 0
 avg_len = 0
@@ -28,10 +30,62 @@ print('第一筆留言資料:',new[0])
 print('第二筆留言資料:',new[1])
 print('----------------------')
 
+#找出 good 留言
+good = []
+for d in data:
+    if 'good' in d:
+        good.append(d)
+print('留言中提到good，一共有',len(good),'筆')
+print('第一筆留言:',good[0])
+ 
+#快寫法 list comprehension 
+good = [d for d in data if 'good' in d]
+print(len(good)
 
-"""
-print(len(data))
+#這種比較少用
+bad = ['bad' in d for d in data]
+print(bad)
+
+# print(len(data))
+# print(data[0])
+# print('-------------')
+# print(data[1])
+
+
+print('----------------------')
 print(data[0])
-print('-------------')
-print(data[1])
-"""
+
+wc = {}  # word_count
+for d in data:
+    words = d.split()
+    for word in words:
+        if word in wc:
+            wc[word] += 1
+        else:
+            wc[word] = 1
+
+
+for word in wc:
+    if wc[word] > 1000000:
+        print(word, wc[word])
+
+print(len(wc))
+print(wc['Allen'])
+
+while True:
+    word = input('請問你想查什麼字:')
+    if word == 'q':
+        break
+    if word in wc:
+        print(word, '出現過的次數為', wc[word])
+    else:
+        print(word, '沒有出現過')
+print('感謝使用本查詢功能!')
+
+
+
+
+
+
+
+
