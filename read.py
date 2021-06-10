@@ -10,6 +10,8 @@ with open('reviews.txt', 'r') as f:
 print('檔案讀取完了,總共有',len(data),'筆資料')
 print('----------------------')
 
+print(data[0])
+
 
 #計算平均留言長度
 sum_len = 0
@@ -19,6 +21,7 @@ for d in data:
 avg_len = sum_len/count
 print('平均留言長度是',avg_len)
 print('----------------------')
+
 
 #找出長度小於一百
 new = []
@@ -30,6 +33,7 @@ print('第一筆留言資料:',new[0])
 print('第二筆留言資料:',new[1])
 print('----------------------')
 
+
 #找出 good 留言
 good = []
 for d in data:
@@ -37,24 +41,24 @@ for d in data:
         good.append(d)
 print('留言中提到good，一共有',len(good),'筆')
 print('第一筆留言:',good[0])
+print('----------------------')
  
 #快寫法 list comprehension 
 good = [d for d in data if 'good' in d]
-print(len(good)
-
-#這種比較少用
-bad = ['bad' in d for d in data]
-print(bad)
-
-# print(len(data))
-# print(data[0])
-# print('-------------')
-# print(data[1])
-
-
+print(len(good))
 print('----------------------')
-print(data[0])
 
+# #這種比較少用
+# bad = ['bad' in d for d in data]
+# print(bad)
+
+# # print(len(data))
+# # print(data[0])
+# # print('-------------')
+# # print(data[1])
+
+
+# 加入字典用法
 wc = {}  # word_count
 for d in data:
     words = d.split()
@@ -71,6 +75,7 @@ for word in wc:
 
 print(len(wc))
 print(wc['Allen'])
+print('----------------------')
 
 while True:
     word = input('請問你想查什麼字:')
@@ -81,11 +86,7 @@ while True:
     else:
         print(word, '沒有出現過')
 print('感謝使用本查詢功能!')
-
-
-
-
-
+print('----------------------')
 
 
 
